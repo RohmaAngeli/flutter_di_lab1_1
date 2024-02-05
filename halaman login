@@ -1,0 +1,245 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'pagestart.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Hello World',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(title: 'Flutter Demo Home Page'),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  final String title;
+
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      // appBar: AppBar(
+      //   title: Text(title),
+      // ),
+      body: Stack(
+        children: [
+          Align(
+            alignment: AlignmentDirectional(0, -1),
+            child: Image.network(
+              'https://i.ibb.co/n8sHZvJ/DURAPOS2.png',
+              width: double.infinity,
+              height: 250,
+              fit: BoxFit.fill,
+              alignment: Alignment.center,
+            ),
+          ),
+          Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              Expanded(
+                flex: 3,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0, 180, 0, 0),
+                  child: Container(
+                    width: double.infinity,
+                    height: 100,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFEEEEEE),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 25, 0, 0),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(-1, 0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    45, 20, 45, 20),
+                                child: Text(
+                                  'Selamat datang kembali!',
+                                  textAlign: TextAlign.start,
+                                  style: GoogleFonts.playfairDisplay(
+                                    color: Colors.black,
+                                    fontSize: 35,
+                                    // fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4, 0, 4, 15),
+                                  child: Container(
+                                    width: 300,
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFE0E0E0),
+                                      borderRadius: BorderRadius.circular(25),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20, 0, 20, 0),
+                                      child: TextFormField(
+                                        decoration: InputDecoration(
+                                          hintText: 'Email',
+                                          hintStyle: GoogleFonts.openSans(
+                                            color: Color(0x7F455A64),
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                          focusedBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color: Colors
+                                                    .red), // Warna merah saat fokus
+                                            // borderRadius:
+                                            //     BorderRadius.circular(50),
+                                          ),
+                                          // errorBorder: OutlineInputBorder(
+                                          //   borderSide: BorderSide(
+                                          //       color: Colors
+                                          //           .red), // Warna merah saat error
+                                          //   borderRadius:
+                                          //       BorderRadius.circular(25),
+                                          // ),
+                                        ),
+                                        style: GoogleFonts.openSans(
+                                          color: Color(0xFF455A64),
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                        // validator: (value) {
+                                        //   if (value == null || value.isEmpty) {
+                                        //     return 'Bidang ini belum diisi!';
+                                        //   }
+                                        //   return null;
+                                        // },
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      4, 0, 4, 20),
+                                  child: Container(
+                                    width: 300,
+                                    height: 50,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xFFE0E0E0),
+                                      borderRadius: BorderRadius.circular(25),
+                                    ),
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20, 0, 20, 0),
+                                      child: TextFormField(
+                                        decoration: InputDecoration(
+                                          hintText: 'Password',
+                                          hintStyle: GoogleFonts.openSans(
+                                            color: Color(0x7F455A64),
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                          focusedBorder: UnderlineInputBorder(
+                                            borderSide: BorderSide(
+                                                color: Colors
+                                                    .red), // Warna merah saat fokus
+                                            // borderRadius:
+                                            //     BorderRadius.circular(25),
+                                          ),
+                                          // errorBorder: OutlineInputBorder(
+                                          //   borderSide: BorderSide(
+                                          //       color: Colors
+                                          //           .red), // Warna merah saat error
+                                          //   borderRadius:
+                                          //       BorderRadius.circular(25),
+                                          // ),
+                                        ),
+                                        style: GoogleFonts.openSans(
+                                          color: Color(0xFF455A64),
+                                          fontWeight: FontWeight.normal,
+                                        ),
+                                        validator: (value) {
+                                          if (value == null || value.isEmpty) {
+                                            return 'Bidang ini belum diisi!';
+                                          }
+                                          return null;
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 18),
+                                  child: ElevatedButton(
+                                    onPressed: () async {
+                                      // Perform sign-in logic
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      primary: Colors.red, // Warna latar merah
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(
+                                            20), // Border radius 20
+                                      ),
+                                      minimumSize: Size(
+                                          0.78 *
+                                              MediaQuery.of(context).size.width,
+                                          50), // Lebar 80% dari lebar layar
+                                    ),
+                                    child: Text('Login'),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0, 0, 0, 15),
+                                  child: TextButton(
+                                    onPressed: () async {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                GetStartedPage()),
+                                      ); // Navigate to create account page
+                                    },
+                                    child: Text(
+                                      'Disclaimer',
+                                      style: GoogleFonts.playfairDisplay(
+                                        color: Colors.red,
+                                        fontWeight: FontWeight.normal,
+                                        decoration: TextDecoration
+                                            .underline, // Menambahkan underline pada teks
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
