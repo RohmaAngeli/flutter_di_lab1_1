@@ -1,0 +1,29 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+FirebaseAuth _auth = FirebaseAuth.instance;
+FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+Future<void> signUpWithAdditionalInfo(String email, String password, String username, String phoneNumber, String address) async {
+  try {
+    // Step 1: Mendaftarkan pengguna dengan email dan kata sandi
+    UserCredential userCredential = await _auth.createUserWithEmailAndPassword(
+      email: email,
+      password: password,
+    );
+
+    // Step 2: Menambahkan informasi tambahan ke profil pengguna di Firebase Authentication
+    await userCredential.user?.updateProfile(displayName: username);
+
+    // Step 3: Menyimpan informasi tambahan ke Firebase Firestore
+    await _firestore.collection('users').doc(userCredential.user?.uid).set({
+      'username': username,
+      'phoneNumber': phoneNumber,
+      'address': address,
+      // Tambahkan informasi tambahan lainnya sesuai kebutuhan
+    });
+  } catch (e) {
+    print('Error during user registration: $e');
+    // Handle error (e.g., display error message to the user)
+  }
+}
