@@ -27,3 +27,26 @@ void submit(BuildContext context, String email, String password) {
     return;
   }
 }
+
+void sweatAlert(BuildContext context) {
+  Alert(
+    context: context,
+    type: AlertType.success,
+    title: "Login berhasil",
+    desc: "Selamat anda berhasil login",
+    buttons: [
+      DialogButton(
+        child: Text(
+          "Selanjutnya",
+          style: TextStyle(color: Colors.white, fontSize: 14),
+        ),
+        onPressed: () => Navigator.pop(context),
+      )
+    ],
+  ).show();
+  return;
+}
+
+// dependencies
+// cupertino_icons: ^1.0.2
+// rflutter_alert: ^2.0.2
