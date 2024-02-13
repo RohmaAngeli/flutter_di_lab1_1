@@ -6,4 +6,4 @@ halaman profil bagian atas kan ada foto mungkin biarin gambar icon profil atau d
 
 
 kurang apa? kurang banyak
-yongalaa semoga nututt
+yongalaa semoga nututt :(
